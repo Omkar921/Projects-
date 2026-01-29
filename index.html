@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Omkar Mahale — FinTech & Quant Portfolio</title>
+  <meta name="description" content="FinTech infrastructure, product analytics, and quantitative trading systems portfolio." />
+
+  <style>
+    :root{
+      --bg:#f6f9ff;
+      --card:#ffffff;
+      --text:#0b1b33;
+      --muted:#4a5b75;
+      --line:#dbe6ff;
+      --blue:#1d4ed8;
+      --blue2:#2563eb;
+      --blue3:#0ea5e9;
+      --shadow: 0 14px 35px rgba(13,37,76,.10);
+      --shadow2: 0 10px 25px rgba(13,37,76,.08);
+      --radius: 18px;
+      --radius2: 14px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 18% -10%, rgba(37,99,235,.14), transparent 55%),
+        radial-gradient(900px 500px at 92% 0%, rgba(14,165,233,.13), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+    }
+    a{color:var(--blue); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1200px; margin:0 auto; padding:26px 18px 70px}
+    .topbar{display:flex; gap:14px; align-items:center; justify-content:space-between; padding:10px 0 6px;}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;}
+    .dot{
+      width:40px;height:40px;border-radius:12px;
+      background: linear-gradient(135deg, var(--blue2), var(--blue3));
+      box-shadow: 0 12px 22px rgba(29,78,216,.22);
+      position:relative;
+    }
+    .dot:after{content:""; position:absolute; inset:10px; border-radius:10px; background:rgba(255,255,255,.80); mix-blend-mode:screen;}
+    .nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end; font-size:14px; color:var(--muted);}
+    .nav a{padding:8px 10px; border-radius:12px; border:1px solid transparent;}
+    .nav a:hover{border-color:var(--line); background:#fff}
+    .hero{display:grid; grid-template-columns: 1.25fr .75fr; gap:18px; margin-top:12px;}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow);}
+    .heroMain{padding:22px 22px 18px}
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff, #f1f7ff);
+      border-radius:999px;
+      font-size:13px; color:var(--muted);
+    }
+    .kbadge{
+      font-family:var(--mono);
+      font-size:12px;
+      padding:4px 8px;
+      border-radius:999px;
+      color:#083c6b;
+      background:rgba(14,165,233,.14);
+      border:1px solid rgba(14,165,233,.22);
+    }
+    h1{margin:12px 0 10px; font-size:40px; line-height:1.08; letter-spacing:-.8px;}
+    .sub{margin:0 0 14px; font-size:16px; line-height:1.6; color:var(--muted); max-width:70ch;}
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 0}
+    .chip{font-size:13px; color:#0f2d55; padding:8px 12px; border-radius:999px; border:1px solid var(--line); background:#fff;}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow:var(--shadow2);
+      font-weight:650;
+      font-size:14px;
+      color:var(--text);
+    }
+    .btnPrimary{
+      background: linear-gradient(135deg, var(--blue2), var(--blue3));
+      border-color:transparent;
+      color:#fff;
+      box-shadow: 0 16px 30px rgba(29,78,216,.22);
+    }
+    .btn svg{width:16px;height:16px}
+    .heroSide{padding:18px}
+    .miniGrid{display:grid; gap:12px;}
+    .mini{padding:14px; border-radius:var(--radius2); border:1px solid var(--line); background: linear-gradient(180deg, #ffffff, #f8fbff);}
+    .mini h3{margin:0 0 6px; font-size:14px}
+    .mini p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
+    .mono{font-family:var(--mono)}
+    .section{margin-top:22px;}
+    .sectionHead{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin:18px 2px 10px;}
+    .sectionHead h2{margin:0; font-size:22px; letter-spacing:-.3px;}
+    .sectionHead .hint{color:var(--muted); font-size:13px;}
+    .projGrid{display:grid; grid-template-columns: repeat(12, 1fr); gap:16px;}
+    .proj{grid-column: span 12; overflow:hidden;}
+    /* Make image bigger: give it more space + full width */
+    .projInner{display:grid; grid-template-columns: 1fr 1.25fr; gap:0;}
+    .projBody{padding:18px 18px 14px}
+    .projTop{display:flex; align-items:flex-start; justify-content:space-between; gap:14px;}
+    .tagRow{display:flex; gap:8px; flex-wrap:wrap}
+    .tag{font-size:12px; padding:6px 10px; border-radius:999px; background: rgba(37,99,235,.08); border:1px solid rgba(37,99,235,.18); color:#123a73; white-space:nowrap;}
+    .proj h3{margin:10px 0 8px; font-size:18px; letter-spacing:-.2px;}
+    .proj p{margin:0 0 12px; color:var(--muted); line-height:1.65; font-size:14px;}
+    .bul{margin:0; padding-left:18px; color:var(--muted); font-size:14px; line-height:1.65;}
+    .bul li{margin:6px 0}
+    .tech{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;}
+    .pill{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); background:#fff; color:#143254;}
+    .impact{
+      margin-top:12px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(14,165,233,.22);
+      background: linear-gradient(180deg, rgba(14,165,233,.10), rgba(37,99,235,.06));
+      color:#0f2d55;
+      font-size:13px;
+      line-height:1.55;
+    }
+    .projMedia{
+      border-left:1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff, #f2f7ff);
+      display:flex;
+      flex-direction:column;
+      align-items:stretch;
+      justify-content:center;
+      padding:14px;
+    }
+    .imgWrap{
+      width:100%;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow: 0 18px 40px rgba(13,37,76,.12);
+      background:#fff;
+    }
+    /* Ensures full clarity: do NOT force small height; let it scale naturally */
+    .imgWrap img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    .imgCaption{
+      margin-top:10px;
+      font-size:12px;
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+    }
+    .zoomHint{
+      font-family:var(--mono);
+      font-size:11px;
+      padding:4px 8px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:#1c3f68;
+    }
+
+    .footer{margin-top:26px; padding:16px 2px 0; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+    .hr{height:1px;background:var(--line);margin:18px 0 0}
+
+    /* Click-to-zoom modal for crystal clear viewing */
+    .modal{
+      position:fixed; inset:0;
+      background:rgba(8,18,40,.78);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:9999;
+    }
+    .modal.open{display:flex;}
+    .modalInner{
+      max-width:min(1200px, 96vw);
+      max-height:92vh;
+      width:100%;
+      background:#ffffff;
+      border-radius:18px;
+      border:1px solid rgba(219,230,255,.6);
+      box-shadow: 0 30px 90px rgba(0,0,0,.35);
+      overflow:hidden;
+    }
+    .modalBar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 12px;
+      background: linear-gradient(180deg, #ffffff, #f3f7ff);
+      border-bottom:1px solid var(--line);
+    }
+    .modalTitle{font-size:13px; color:var(--muted)}
+    .closeBtn{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:12px;
+      padding:8px 10px;
+      cursor:pointer;
+      font-weight:650;
+    }
+    .modalImgWrap{
+      background:#fff;
+      padding:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:auto;
+      max-height:calc(92vh - 52px);
+    }
+    .modalImgWrap img{
+      width:100%;
+      height:auto;
+      max-width:1150px;
+      display:block;
+    }
+
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      .projInner{grid-template-columns:1fr}
+      .projMedia{border-left:none; border-top:1px solid var(--line)}
+      h1{font-size:34px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="dot" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:16px">Omkar Mahale</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">FinTech • Quant Analytics • Systems</div>
+        </div>
+      </div>
+      <div class="nav">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="card heroMain">
+        <div class="kicker">
+          <span class="kbadge">WHITE/BLUE THEME</span>
+          <span>FinTech infrastructure + ML analytics + trading systems</span>
+        </div>
+
+        <h1>FinTech & Quantitative Systems Portfolio</h1>
+        <p class="sub">
+          I build production-style fintech and quantitative finance systems — from <b>money movement & ledger logic</b> to
+          <b>unit economics analytics</b> and <b>market microstructure signals</b>. This portfolio highlights five projects
+          designed to look and feel like real industry work.
+        </p>
+
+        <div class="chips" id="skills">
+          <span class="chip">Python</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Streamlit / Dash</span>
+          <span class="chip">Pandas • NumPy</span>
+          <span class="chip">XGBoost</span>
+          <span class="chip">Backtesting</span>
+          <span class="chip">Risk & Market Microstructure</span>
+          <span class="chip">FinTech Product Analytics</span>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="#projects">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            View Projects
+          </a>
+          <a class="btn" href="#contact">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4Zm2 3h12M6 11h8M6 15h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Contact
+          </a>
+        </div>
+      </div>
+
+      <div class="card heroSide">
+        <div class="miniGrid">
+          <div class="mini">
+            <h3>Portfolio Positioning</h3>
+            <p>FinTech + Quant: payments & ledger architecture, product analytics, risk signals, regime-based investing, and execution modeling.</p>
+          </div>
+          <div class="mini">
+            <h3>How to view images clearly</h3>
+            <p>Click any project image to open a full-size view. Best for reading labels and numbers.</p>
+          </div>
+          <div class="mini">
+            <h3>Best-fit roles</h3>
+            <p>FinTech Product/Analytics • Quant Research • Risk Analytics • Trading Systems • Data Science (Finance)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section" id="projects">
+      <div class="sectionHead">
+        <h2>Projects</h2>
+        <div class="hint">Tip: click the image to zoom.</div>
+      </div>
+
+      <div class="projGrid">
+
+        <!-- 1 -->
+        <article class="card proj">
+          <div class="projInner">
+            <div class="projBody">
+              <div class="projTop">
+                <div class="tagRow"><span class="tag">Payments</span><span class="tag">Ledger</span><span class="tag">Fund Flow</span><span class="tag">FinTech Infra</span></div>
+                <div class="mono" style="font-size:12px;color:var(--muted)">#01</div>
+              </div>
+              <h3>💳 SIPly FinTech Infrastructure Dashboard</h3>
+              <p>A financial infrastructure simulation dashboard modeling how a fintech platform manages user funds, platform revenue, and banking integrations across payment and custody layers.</p>
+              <ul class="bul">
+                <li>Tracks <b>user wallet balances</b> separately from platform funds.</li>
+                <li>Simulates flow: <b>Stripe → Internal Ledger → Rho Banking Layer</b>.</li>
+                <li>Maintains <b>liability vs asset views</b> to enforce capital segregation.</li>
+                <li>Shows <b>real-time positions</b> across accounts (user funds, revenue, treasury).</li>
+              </ul>
+              <div class="tech"><span class="pill">Python</span><span class="pill">SQL</span><span class="pill">Streamlit</span><span class="pill">Ledger Logic</span></div>
+              <div class="impact"><b>Impact:</b> Demonstrates strong understanding of fintech payment flows, custodial logic, and infrastructure architecture (segregation + ledger integrity).</div>
+            </div>
+            <div class="projMedia">
+              <div class="imgWrap">
+                <img class="zoomable" src="assets/p1-siply-flow.png" alt="SIPly FinTech Infrastructure Flow" data-title="SIPly FinTech Infrastructure Flow" />
+              </div>
+              <div class="imgCaption"><span>Flow: User Bank → Stripe → Internal Ledger → Rho → Partners</span><span class="zoomHint">Click to zoom</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="card proj">
+          <div class="projInner">
+            <div class="projBody">
+              <div class="projTop">
+                <div class="tagRow"><span class="tag">Analytics</span><span class="tag">Unit Economics</span><span class="tag">LTV/CAC</span><span class="tag">Churn ML</span></div>
+                <div class="mono" style="font-size:12px;color:var(--muted)">#02</div>
+              </div>
+              <h3>📈 FinTech Product Analytics & Unit Economics Engine</h3>
+              <p>An analytics system measuring how users interact with a fintech savings product and how that behavior drives long-term revenue sustainability.</p>
+              <ul class="bul">
+                <li>Funnel tracking: <b>Signup → Funded → Active → Completed Plan</b>.</li>
+                <li><b>Cohort retention</b> analysis to understand engagement over time.</li>
+                <li><b>LTV vs CAC</b> modeling for profitability and scaling decisions.</li>
+                <li><b>ML churn risk prediction</b> for proactive interventions.</li>
+              </ul>
+              <div class="tech"><span class="pill">Python</span><span class="pill">Pandas</span><span class="pill">SQL</span><span class="pill">Scikit-learn</span><span class="pill">Streamlit/BI</span></div>
+              <div class="impact"><b>Impact:</b> Proves ability to connect user behavior with financial performance — the core skill behind scaling fintech products profitably.</div>
+            </div>
+            <div class="projMedia">
+              <div class="imgWrap">
+                <img class="zoomable" src="assets/p2-analytics-engine.png" alt="FinTech Product Analytics & Unit Economics" data-title="FinTech Product Analytics & Unit Economics" />
+              </div>
+              <div class="imgCaption"><span>Funnels • Cohorts • LTV/CAC • Churn Prediction</span><span class="zoomHint">Click to zoom</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="card proj">
+          <div class="projInner">
+            <div class="projBody">
+              <div class="projTop">
+                <div class="tagRow"><span class="tag">Market Risk</span><span class="tag">Microstructure</span><span class="tag">Signals</span><span class="tag">Stress Score</span></div>
+                <div class="mono" style="font-size:12px;color:var(--muted)">#03</div>
+              </div>
+              <h3>⚠️ AI Liquidity & Volatility Early Warning System</h3>
+              <p>An AI-driven system that detects early signs of market stress using liquidity and volatility patterns to provide actionable risk signals.</p>
+              <ul class="bul">
+                <li>Monitors: spread expansion, volume shocks, volatility spikes, order imbalance.</li>
+                <li>Outputs a <b>Market Stress Score (0–100)</b> with historical stress overlays.</li>
+                <li>Designed for decision support: reduce exposure / tighten risk during stress.</li>
+              </ul>
+              <div class="tech"><span class="pill">Python</span><span class="pill">XGBoost</span><span class="pill">NumPy</span><span class="pill">Plotly</span><span class="pill">Signal Engineering</span></div>
+              <div class="impact"><b>Impact:</b> Shows strong market microstructure understanding and institutional-style risk detection used in quantitative trading environments.</div>
+            </div>
+            <div class="projMedia">
+              <div class="imgWrap">
+                <img class="zoomable" src="assets/p3-liquidity-warning.png" alt="Liquidity & Volatility Early Warning" data-title="AI Liquidity & Volatility Early Warning" />
+              </div>
+              <div class="imgCaption"><span>Signals → Model → Stress Score → Dashboard</span><span class="zoomHint">Click to zoom</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="card proj">
+          <div class="projInner">
+            <div class="projBody">
+              <div class="projTop">
+                <div class="tagRow"><span class="tag">Regime Modeling</span><span class="tag">Adaptive Investing</span><span class="tag">Macro</span><span class="tag">Backtesting</span></div>
+                <div class="mono" style="font-size:12px;color:var(--muted)">#04</div>
+              </div>
+              <h3>🌍 AI Market Regime & Strategy Switcher</h3>
+              <p>A machine learning model that classifies financial markets into regimes and dynamically adjusts portfolio strategy to match prevailing macro conditions.</p>
+              <ul class="bul">
+                <li>Regimes: Bull Growth, Sideways, High Volatility, Liquidity Stress.</li>
+                <li>Switches allocation: risk-on, defensive rotation, hedge-heavy positioning.</li>
+                <li>Includes backtesting vs static strategy for performance comparison.</li>
+              </ul>
+              <div class="tech"><span class="pill">Python</span><span class="pill">HMM / Clustering</span><span class="pill">Backtrader</span><span class="pill">Portfolio Logic</span></div>
+              <div class="impact"><b>Impact:</b> Demonstrates macro intelligence + AI-driven investment adaptation — exactly what asset managers and hedge funds want.</div>
+            </div>
+            <div class="projMedia">
+              <div class="imgWrap">
+                <img class="zoomable" src="assets/p4-regime-switcher.png" alt="Market Regime & Strategy Switcher" data-title="AI Market Regime & Strategy Switcher" />
+              </div>
+              <div class="imgCaption"><span>Regime detection → allocation shifts → backtest results</span><span class="zoomHint">Click to zoom</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="card proj">
+          <div class="projInner">
+            <div class="projBody">
+              <div class="projTop">
+                <div class="tagRow"><span class="tag">Execution</span><span class="tag">Slippage</span><span class="tag">Market Impact</span><span class="tag">Trading Infra</span></div>
+                <div class="mono" style="font-size:12px;color:var(--muted)">#05</div>
+              </div>
+              <h3>💹 Smart Trade Execution Cost & Slippage Model</h3>
+              <p>A quantitative execution simulator showing how transaction costs, slippage, and market impact reshape real-world strategy profitability.</p>
+              <ul class="bul">
+                <li>Estimates slippage based on order size and liquidity.</li>
+                <li>Simulates Market vs Limit vs TWAP execution.</li>
+                <li>Outputs <b>gross vs net returns</b> to expose hidden performance drag.</li>
+              </ul>
+              <div class="tech"><span class="pill">Python</span><span class="pill">NumPy</span><span class="pill">Matplotlib</span><span class="pill">Execution Modeling</span></div>
+              <div class="impact"><b>Impact:</b> Highlights pro-level awareness of trading friction and execution risk — a major differentiator for quant roles.</div>
+            </div>
+            <div class="projMedia">
+              <div class="imgWrap">
+                <img class="zoomable" src="assets/p5-execution-cost.png" alt="Execution Cost & Slippage Model" data-title="Smart Trade Execution Cost & Slippage Model" />
+              </div>
+              <div class="imgCaption"><span>Execution choice → costs → net performance</span><span class="zoomHint">Click to zoom</span></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <section class="section" id="contact">
+      <div class="sectionHead">
+        <h2>Contact</h2>
+        <div class="hint">Update GitHub username if needed.</div>
+      </div>
+
+      <div class="card" style="padding:16px 18px">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px">
+          <div class="mini">
+            <h3>Email</h3>
+            <p><a href="mailto:099omkarmahale@gmail.com">099omkarmahale@gmail.com</a></p>
+            <p style="margin-top:6px;color:var(--muted);font-size:13px">Best for internships, projects, and collaboration.</p>
+          </div>
+          <div class="mini">
+            <h3>LinkedIn / GitHub</h3>
+            <p><a href="https://www.linkedin.com/in/omkar-mahale-rr99" target="_blank" rel="noopener">linkedin.com/in/omkar-mahale-rr99</a></p>
+            <p><a href="https://github.com/omkar921" target="_blank" rel="noopener">github.com/omkar921</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>© <span id="y"></span> Omkar Mahale • White/Blue FinTech Portfolio</div>
+        <div class="mono">Click any image to zoom • Single-file static site</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Image Modal -->
+  <div class="modal" id="imgModal" aria-hidden="true">
+    <div class="modalInner" role="dialog" aria-modal="true" aria-label="Image preview">
+      <div class="modalBar">
+        <div class="modalTitle" id="modalTitle">Preview</div>
+        <button class="closeBtn" id="closeModal" type="button">Close ✕</button>
+      </div>
+      <div class="modalImgWrap">
+        <img id="modalImg" src="" alt="Preview" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+    const modalTitle = document.getElementById("modalTitle");
+    const closeBtn = document.getElementById("closeModal");
+
+    function openModal(src, title){
+      modalImg.src = src;
+      modalTitle.textContent = title || "Preview";
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeModal(){
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      modalImg.src = "";
+    }
+
+    document.querySelectorAll(".zoomable").forEach(img => {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", () => {
+        openModal(img.getAttribute("src"), img.dataset.title || img.alt);
+      });
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if(e.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") closeModal();
+    });
+  </script>
+</body>
+</html>
